@@ -48,6 +48,9 @@ def write_html(question_answer_list):
     style = """<style>
 .hidden-answer:hover{color:red;font-weight:bold;}
 .hidden-answer{color:white;display:block;border: 1px solid black;}
+@media print {
+    .hidden-answer{color:red;font-weight:bold;}
+}
 </style>"""
     doc_list = ['<html>', style, "<strong>", str(len(question_set)), "</strong>", '</html>']
     doc_list[-1:-1] = [str(each) for each in question_answer_list]
@@ -91,4 +94,4 @@ def extract_iterate(loop=10):
 
     write_html(final_list)
 
-extract_iterate(100)
+extract_iterate(10)
